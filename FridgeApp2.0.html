@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<meta charset="UTF-8">
+
+
+<head>
+    <title>Olaf's Design Principles</title>
+
+  <style>
+
+body {
+  border: 5px solid red;
+}
+
+.green {
+  border-color: green;
+}
+
+
+    #main {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      border: solid gray; border-width: 2px;
+      padding: 5px 5px 5px 5px;
+      margin: 10px 10px 10px 10px;
+      width: 750px;
+      height: 500px;
+    }
+    
+    #changeTemp {
+      position: absolute;  
+      top: 20px;
+      left: 180px; 
+      border: solid yellow; border-width: 1px;
+      padding: 5px 5px 5px 5px;
+
+      }
+
+    #desiredTemp {
+      position: absolute;
+      top: 22px;
+      left: 110px;
+    }
+
+    #actualTemp {
+      position: absolute;
+      top: 56px;
+      left: 110px;
+    }
+
+    #Clock{
+      position: absolute;
+      top: 10px;
+      left: 600px;
+    }
+
+    #changeTemp{
+      position: absolute;
+      top: 10px;
+      left: 300px;
+    }
+
+    #viewFridge{
+      position: absolute;
+      top: 150px;
+      left: 430px;
+    }
+
+    #fridgeOnOff{
+      position: absolute;
+      top: 485px;
+      left: 700px;
+    }
+
+
+    
+
+
+    </style>
+
+</head>
+
+<body>
+
+  <div id="main">
+
+
+    <p>Desired Temp:</p>
+    <div id="desiredTemp"> 0  </div >
+
+    <p>Actual Temp:</p>
+    <div id="actualTemp"> 2 C </div>
+
+
+
+
+
+
+
+    
+    
+    <div id="changeTemp">
+      <div id="desiredTemp"></div>
+      <button onclick="updateTempUp()">Raise Temp</button>
+      <div id="desiredTemp"></div>
+      <button onclick="updateTempDown()">Lower Temp</button>
+    </div>
+
+    <button onclick="playMusic()">Some Tunes</button>
+    <audio id="myMusic" src="D:\Downloads\SpongeBobIntro.mp3"></audio>
+
+    <div id="fridgeOnOff">   
+    <button onclick="OnOFF()">On/Off</button>
+    </div> 
+
+
+    
+
+      <input type="text" id="inputField">
+      <button onclick="showOutput()">Search</button>
+
+      <p>The random number is: <span id="random-number"></span></p>
+
+      
+      <div id="div2">
+        <img src="https://th.bing.com/th/id/R.13258044286bed29a2413e774e806010?rik=IW7Z6XbzkM06Hw&riu=http%3a%2f%2fmedia.sbmania.net%2fpictures%2f47a%2f360.png&ehk=zzm5gFGetrAjA07oS5I1gIACnQl62wJpghJdT1QI0yc%3d&risl=&pid=ImgRaw&r=0"
+             id="image1" width=400px heigth=400px>  
+      </div>
+
+      <div id="Weather">
+        <p>Current Weather is: 22 C</p>
+      </div>
+    
+      <div id="Clock">
+        <p> Time: </p>
+        <p id="time"></p>
+        
+          <script>
+            setInterval(function() {
+              var now = new Date();
+              var hours = now.getHours();
+              var minutes = now.getMinutes();
+              var seconds = now.getSeconds();
+              var timeOutput = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('time').textContent = timeOutput;
+            }, 1000); 
+          </script>
+      </div>
+
+      <div id="viewFridge">
+        <img id="myImage" src="D:\Downloads\insideSpongeFridge.png" style="display: none;"width=200px heigth=300px> 
+        <button onclick="toggleImage()">View Fridge</button>
+      </div>
+ 
+
+      <script>
+        function toggleImage() {
+          var img = document.getElementById("myImage");
+          if (img.style.display === "none") {
+            img.style.display = "block";
+          } else {
+            img.style.display = "none";
+          }
+        }
+      </script>
+
+    
+
+
+
+    <script>
+
+    
+        function updateTempUp() {
+          // Get the current number
+          var currentNumber = parseInt(document.getElementById("desiredTemp").innerHTML);
+        
+          // Add 1 to the current number
+          var newNumber = currentNumber + 1;
+        
+          // Update the number in the division
+          document.getElementById("desiredTemp").innerHTML = newNumber;
+        }
+    
+        function updateTempDown() {
+          // Get the current number
+          var currentNumber = parseInt(document.getElementById("desiredTemp").innerHTML);
+    
+          // Subtract 1 to the current number
+          var newNumber = currentNumber - 1;
+    
+          // Update the number in the division
+          document.getElementById("desiredTemp").innerHTML = newNumber;
+        }
+
+          // Play music function
+          function playMusic() {
+          var audio = document.getElementById("myMusic");
+          audio.play();
+         }
+        
+          // Turn fridge on/off
+         function OnOFF() {
+         var body = document.querySelector('body');
+         body.classList.toggle('green');
+         }
+
+          // Search bar notice
+         function showOutput() {
+          var inputField = document.getElementById("inputField");
+          var search = inputField.value;
+          alert("Go to the gym, close the fridge!" );
+        }
+          // Random number generator
+        var randomNumber = Math.floor(Math.random() * 100) + 1;
+        document.getElementById('random-number').textContent = randomNumber;
+
+    
+    
+    
+    </script>
+
+
+
+
+
+
+  </div>
+
+</body>
+
+
+
+
+
+</html>
