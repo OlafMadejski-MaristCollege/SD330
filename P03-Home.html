@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="P03-CSS.css">
+        <link rel="Home" href="P03-Home.html">
+        <link rel="UserAccount" href="P03-UserAccnt.html">
+        <link rel="PasswordReset" href="P03-Courses.html">
+        <link rel="Settings" href="P03-Settings.html">
+        <style>
+           
+            .button {
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            
+           
+            .news-column {
+                float: left;
+                width: 30%;
+                padding: 20px;
+                background-color: black;
+                height: 100%;
+                overflow: auto;
+            }
+
+            .order-by-class {
+                float: right;
+                width: 30%;
+                padding: 20px;
+                background-color: black;
+                height: 100%;
+                overflow: auto;
+            }
+            
+       
+            .button-position {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+
+            .slide {
+			display: none;
+			max-width: 100%;
+			height: auto;
+			margin: auto;
+		}
+
+        
+        </style>
+    </head>
+    
+<body>
+
+
+<nav class="crumbs">
+    <ol>
+        <li class="crumb"><a href="P03-Home.html">Home</a></li>
+        <li class="crumb"><a href="P03-UserAccnt.html">UserAccount</a></li>
+        <li class="crumb"><a href="P03-Courses.html">Courses</a></li>
+        <li class="crumb"><a href="P03-Settings.html">Settings</a></li>
+    </ol>
+</nav>
+    
+<h1>Welcome to Fox Books!</h1>
+
+
+
+
+<div class="button-position">
+    <button class="button">Login</button>
+    <button class="button">Search</button>
+</div>
+
+<div id="slideshowTitle">
+<p>Click the picture and cycle through Marist</p>
+</div>
+
+
+<div class="news-column">
+    <h2>Latest News</h2>
+    <ul>
+        <li>Marist gets a new Professor</li>
+        <li>Register for class</li>
+        <li>Take an online winter course</li>
+        <li>Congrats Grads</li>
+        <li>Dining hall menu (Updated)</li>
+    </ul>
+</div>
+
+
+<div class="order-by-class">
+    <h2>Order books by Class</h2>
+    <ul>
+        <li>CHEM 101</li>
+        <li>INTRO TO CYBER</li>
+        <li>LIT 102</li>
+        <li>HACKING 201</li>
+        <li>IT FUNDAMENTALS</li>
+    </ul>
+</div>
+
+<!-- Slideshow Images -->
+<div class="slideshow">
+    <img class="slide" src="https://maristcareerservices.weebly.com/uploads/8/9/2/8/89289108/library_1_orig.jpg">
+    <img class="slide" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.usnews.com%2Fdims4%2FUSNEWS%2F21725b4%2F17177859217%2Fresize%2F800x540%253E%2Fquality%2F85%2F%3Furl%3Dhttps%3A%252F%252Fmedia.beam.usnews.com%252F53%252Fab922091dcd711b69234039f7e699a%252F2019_09_13_Campus_DSC1872-2.jpg&f=1&nofb=1&ipt=6ef31c410e5822f21b66bddf5dedb4a63b2d36f7dc3d2984d7f3a4d3a5ead450&ipo=images">
+    <img class="slide" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.gannett-cdn.com%2Fpresto%2F2018%2F10%2F18%2FPPOU%2Fe12b4335-0a51-456a-8d22-c3b3c28ffd6d-PO-101218CollegeEndowments-Marist02.JPG%3Fcrop%3D5183%2C2903%2Cx0%2Cy448%26width%3D3200%26height%3D1793%26format%3Dpjpg%26auto%3Dwebp&f=1&nofb=1&ipt=becfa89969db665c60271904e5bddf2285faaf8a8bad4da19ea3e0ce044381a0&ipo=images">
+</div>
+
+
+<script>
+    
+    function login() {
+        alert("User logged in");
+    }
+    
+    function search() {
+        alert("Search results displayed");
+    }
+    
+    document.querySelector(".button:nth-of-type(1)").addEventListener("click", login);
+    document.querySelector(".button:nth-of-type(2)").addEventListener("click", search);
+
+
+
+var slideIndex = 1;
+		var slides = document.getElementsByClassName("slide");
+		showSlides(slideIndex);
+
+		
+		function changeSlide(n) {
+			showSlides(slideIndex += n);
+		}
+
+		
+		function showSlides(n) {
+			if (n > slides.length) {
+				slideIndex = 1;
+			}
+			if (n < 1) {
+				slideIndex = slides.length;
+			}
+			for (var i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			slides[slideIndex - 1].style.display = "block";
+		}
+
+		
+		for (var i = 0; i < slides.length; i++) {
+			slides[i].addEventListener("click", function() {
+				changeSlide(1);
+			});
+		}
+
+        
+		
+		
+	</script>
+
+
+</script>
+
+</body>
+
+
+
+
+
+
+</html>

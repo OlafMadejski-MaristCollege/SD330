@@ -1,0 +1,56 @@
+nav {
+    border-bottom: 1px solid black;
+}
+
+.crumbs ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.crumb {
+    display: inline-block;
+}
+
+.crumb a::after {
+    display: inline-block;
+    color: #000;
+    content: '>';
+    font-size: 80%;
+    font-weight: bold;
+    padding: 0 3px;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+.course {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.course h2 {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.course ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.course ul li::before {
+    content: "• ";
+    color: red;
+}

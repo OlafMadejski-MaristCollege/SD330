@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <title>Courses</title>
+        <link rel="stylesheet" href="P03-CSS.css">
+        <link rel="Home" href="P03-Home.html">
+        <link rel="UserAccount" href="P03-UserAccnt.html">
+        <link rel="Courses" href="P03-Courses.html">
+        <link rel="Settings" href="P03-Settings.html">
+        <link rel="JSON" href="P03-Data.json">
+        <link rel="JavaScript" href="P03-Scripts.js">
+
+
+
+        <script src="P03-Scripts.js" defer></script>
+    </head>
+    
+<body>
+
+
+<nav class="crumbs">
+    <ol>
+        <li class="crumb"><a href="P03-Home.html">Home</a></li>
+        <li class="crumb"><a href="P03-UserAccnt.html">UserAccount</a></li>
+        <li class="crumb"><a href="P03-Courses.html">Courses</a></li>
+        <li class="crumb"><a href="P03-Settings.html">Settings</a></li>
+    </ol>
+</nav>
+    
+<table>
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Professor</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+
+
+
+</body>
+
+
+  <script>
+    fetch('P03-Data.json')
+			.then(response => response.json())
+			.then(data => {
+				// Create HTML elements to display data
+				var ul = document.createElement('ul');
+				data.forEach(item => {
+					var li = document.createElement('li');
+					li.textContent = item.name + ' - ' + item.description;
+					ul.appendChild(li);
+				});
+				document.body.appendChild(ul);
+			})
+			.catch(error => console.error(error));
+  </script>
+
+
+
+
+</html>
